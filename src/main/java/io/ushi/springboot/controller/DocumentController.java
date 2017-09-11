@@ -2,6 +2,7 @@ package io.ushi.springboot.controller;
 
 import io.ushi.springboot.domain.jpa.Document;
 import io.ushi.springboot.repository.jpa.JpaDocumentRepository;
+import io.ushi.springboot.repository.mybatis.MyDocumentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +22,10 @@ import java.util.List;
 public class DocumentController {
 
     @Autowired
-    JpaDocumentRepository jpaDocumentRepository;
+    private JpaDocumentRepository jpaDocumentRepository;
+
+    @Autowired
+    MyDocumentRepository myDocumentRepository;
 
     @RequestMapping(value = "/document/{id}", method = RequestMethod.GET)
     public Document document(@PathVariable("id") Long documentId) {
@@ -34,7 +38,8 @@ public class DocumentController {
     public List<Document> artifacts(@PathVariable("gid") String groupId) {
 
         // insert data by h2-console
-        return jpaDocumentRepository.findByGroupId(groupId);
+//        return jpaDocumentRepository.findByGroupId(groupId);
+        return myDocumentRepository.findByGroupId(groupId);
     }
 
     @RequestMapping(value = "/group/{gid}/artifact/{aid}/versions", method = RequestMethod.GET)

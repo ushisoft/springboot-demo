@@ -24,3 +24,13 @@ quartz:
 liquibase:
   enabled: true
   change-log: classpath:db/changelog/db.changelog-master.xml
+
+logging:
+  level: debug
+
+mybatis:
+  type-aliases-package: io.ushi.springboot.domain.mybatis
+  configuration:
+    map-underscore-to-camel-case: true
+    default-fetch-size: 100
+    default-statement-timeout: 30
