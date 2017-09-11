@@ -4,10 +4,12 @@ import io.ushi.springboot.domain.jpa.Document
 import org.apache.ibatis.annotations.Mapper
 import org.apache.ibatis.annotations.Param
 import org.apache.ibatis.annotations.Select
+import org.springframework.stereotype.Repository
 
 /**
  * Created by zhouleibo on 2017/9/11.
  */
+@Repository
 @Mapper
 interface MyDocumentRepository {
 

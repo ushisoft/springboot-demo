@@ -25,7 +25,7 @@ public class DocumentController {
     private JpaDocumentRepository jpaDocumentRepository;
 
     @Autowired
-    MyDocumentRepository myDocumentRepository;
+    private MyDocumentRepository myDocumentRepository;
 
     @RequestMapping(value = "/document/{id}", method = RequestMethod.GET)
     public Document document(@PathVariable("id") Long documentId) {
