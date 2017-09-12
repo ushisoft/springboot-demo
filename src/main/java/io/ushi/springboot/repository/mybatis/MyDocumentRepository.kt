@@ -4,6 +4,7 @@ import io.ushi.springboot.domain.jpa.Document
 import org.apache.ibatis.annotations.Mapper
 import org.apache.ibatis.annotations.Param
 import org.apache.ibatis.annotations.Select
+import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
 
 /**
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Repository
  */
 @Repository
 @Mapper
-interface MyDocumentRepository {
+interface MyDocumentRepository : CrudRepository<Document, Long> {
 
     @Select("""
         SELECT
