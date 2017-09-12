@@ -26,7 +26,10 @@ liquibase:
   change-log: classpath:db/changelog/db.changelog-master.xml
 
 logging:
-  level: debug
+  level:
+    root: info
+    org.springframework.web: debug
+  path: /var/log/springboot-demo
 
 mybatis:
   type-aliases-package: io.ushi.springboot.domain.mybatis
