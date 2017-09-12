@@ -31,8 +31,7 @@ public class DocumentController {
     public Document document(@PathVariable("id") Long documentId) {
 
         // insert data by h2-console
-//        return jpaDocumentRepository.findDocument(documentId);
-        return myDocumentRepository.findOne(documentId);
+        return jpaDocumentRepository.findDocument(documentId);
     }
 
     @RequestMapping(value = "/group/{gid}/artifacts", method = RequestMethod.GET)
