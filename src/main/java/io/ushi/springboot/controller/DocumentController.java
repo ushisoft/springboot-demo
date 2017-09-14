@@ -27,6 +27,11 @@ public class DocumentController {
     @Autowired
     private MyDocumentRepository myDocumentRepository;
 
+    @RequestMapping(value = "/test/{id}")
+    public String test(@PathVariable("id") Long id) {
+        return myDocumentRepository.selectByPrimaryKey(id).getGroupId();
+    }
+
     @RequestMapping(value = "/document/{id}", method = RequestMethod.GET)
     public Document document(@PathVariable("id") Long documentId) {
 

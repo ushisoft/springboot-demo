@@ -1,5 +1,6 @@
 package io.ushi.springboot.config;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -16,6 +17,7 @@ import javax.sql.DataSource;
  */
 @Configuration
 @EnableJpaRepositories(basePackages = "io.ushi.springboot.repository")
+@MapperScan({"io.ushi.springboot.mapper", "io.ushi.springboot.repository.mybatis"})
 public class ApplicationConfiguration {
 
     /**

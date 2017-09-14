@@ -1,6 +1,7 @@
 package io.ushi.springboot.repository.mybatis
 
 import io.ushi.springboot.domain.jpa.Document
+import io.ushi.springboot.mapper.DocumentMapper
 import org.apache.ibatis.annotations.Mapper
 import org.apache.ibatis.annotations.Param
 import org.apache.ibatis.annotations.Select
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Repository
  */
 @Repository
 @Mapper
-interface MyDocumentRepository {
+interface MyDocumentRepository : DocumentMapper {
 
     /**
      * 动态SQL需要用<script>标签包裹
