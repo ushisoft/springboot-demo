@@ -18,4 +18,9 @@ public class DocumentService {
         logger.info("Hello World!");
         return "hello";
     }
+
+    public String sayHi() {
+        logger.info("Hi World!");
+        return "hi";
+    }
 }

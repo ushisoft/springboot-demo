@@ -11,6 +11,7 @@ import org.quartz.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -31,7 +32,7 @@ public class SpringbootApplicationTests {
     @Autowired
     private RedisTemplate redisTemplate;
 
-    @MockBean
+    @SpyBean
     private DocumentService documentService;
 
     @Test
@@ -60,6 +61,7 @@ public class SpringbootApplicationTests {
 
         Mockito.when(documentService.sayHello()).thenReturn("mock");
         Assert.assertEquals("mock", documentService.sayHello());
+        Assert.assertEquals("hi", documentService.sayHi());
     }
 
     @Test
