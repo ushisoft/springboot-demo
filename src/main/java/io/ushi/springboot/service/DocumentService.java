@@ -10,11 +10,12 @@ import org.springframework.stereotype.Service;
  * Created by zhouleibo on 2017/8/30.
  */
 @Service
-public class DocumentCollectService {
+public class DocumentService {
 
-    private static final Logger logger = LoggerFactory.getLogger(DocumentCollectService.class);
+    private static final Logger logger = LoggerFactory.getLogger(DocumentService.class);
 
-    public void sayHello() {
+    public String sayHello() {
         logger.info("Hello World!");
+        return "hello";
     }
 }

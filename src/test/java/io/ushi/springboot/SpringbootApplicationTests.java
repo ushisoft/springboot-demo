@@ -2,12 +2,15 @@ package io.ushi.springboot;
 
 import io.ushi.springboot.config.quartz.job.DocumentCollectJob;
 import io.ushi.springboot.model.Document;
+import io.ushi.springboot.service.DocumentService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.quartz.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -28,6 +31,9 @@ public class SpringbootApplicationTests {
     @Autowired
     private RedisTemplate redisTemplate;
 
+    @MockBean
+    private DocumentService documentService;
+
     @Test
     public void contextLoads() {
     }
@@ -47,6 +53,13 @@ public class SpringbootApplicationTests {
         scheduler.scheduleJob(jobDetail, trigger);
 
         Thread.sleep(5000);
+    }
+
+    @Test
+    public void mockTest() throws Exception {
+
+        Mockito.when(documentService.sayHello()).thenReturn("mock");
+        Assert.assertEquals("mock", documentService.sayHello());
     }
 
     @Test

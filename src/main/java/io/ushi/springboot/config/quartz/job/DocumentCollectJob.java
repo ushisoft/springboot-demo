@@ -1,6 +1,6 @@
 package io.ushi.springboot.config.quartz.job;
 
-import io.ushi.springboot.service.DocumentCollectService;
+import io.ushi.springboot.service.DocumentService;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class DocumentCollectJob implements Job {
 
     @Autowired
-    private DocumentCollectService documentCollectService;
+    private DocumentService documentService;
 
     @Override
     public void execute(JobExecutionContext jobExecutionContext) {
-        documentCollectService.sayHello();
+        documentService.sayHello();
     }
 }
