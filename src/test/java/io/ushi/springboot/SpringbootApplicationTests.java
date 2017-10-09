@@ -10,13 +10,13 @@ import org.mockito.Mockito;
 import org.quartz.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.sql.*;
 import java.util.concurrent.TimeUnit;
 
 @RunWith(SpringRunner.class)
@@ -86,6 +86,26 @@ public class SpringbootApplicationTests {
 
         Assert.assertEquals(true, redisTemplate.hasKey("com.qjdchina"));
         Assert.assertEquals(false, redisTemplate.hasKey("com.qjdchina.temp"));
+    }
+
+    @Test
+    public void jdbcTest() {
+        String driver = "com.mysql.jdbc.Driver";
+        String url = "jdbc:mysql://10.1.1.64:3306/receiver";
+        String username = "admin";
+        String password = "westos";
+        Connection connection = null;
+        try {
+            Class.forName(driver);
+            connection = DriverManager.getConnection(url, username, password);
+            DatabaseMetaData metadata = connection.getMetaData();
+            ResultSet resultSet = metadata.getTables(null, "receiver", "clms_credit", new String[]{"TABLE"});
+            Assert.assertTrue(resultSet.next());
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }
