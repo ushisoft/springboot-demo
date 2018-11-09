@@ -5,7 +5,7 @@
 
     <groupId>io.ushi</groupId>
     <artifactId>springboot-demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>SpringbootDemo</name>
@@ -14,7 +14,7 @@
     <parent>
         <groupId>io.ushi</groupId>
         <artifactId>parent-pom</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>1.0-SNAPSHOT</version>
         <relativePath/> <!-- lookup parent frepositoriestory -->
     </parent>
 
@@ -92,13 +92,9 @@
         <!-- kotlin -->
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
-            <artifactId>kotlin-stdlib-jre8</artifactId>
+            <artifactId>kotlin-stdlib-jdk8</artifactId>
         </dependency>
         <!-- 3rd common tools -->
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-        </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
