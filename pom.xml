@@ -5,7 +5,7 @@
 
     <groupId>io.ushi</groupId>
     <artifactId>springboot-demo</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>SpringbootDemo</name>
@@ -14,7 +14,7 @@
     <parent>
         <groupId>io.ushi</groupId>
         <artifactId>parent-pom</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>0.0.1-SNAPSHOT</version>
         <relativePath/> <!-- lookup parent frepositoriestory -->
     </parent>
 
